@@ -13,11 +13,19 @@ datasource db {
 
 model User {
   id      Int      @id @default(autoincrement())
+  employeeId String  @unique
+  ThaiName String
+  EngName String
+  Position String
+  Department String
+  Division String
+  Section String
   email   String   @unique
+  Mobile_Phone String
   username String   @unique
   password String
+  image_url String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  employeeId String  @unique
+  updatedAt DateTime @updatedAt 
 
 }

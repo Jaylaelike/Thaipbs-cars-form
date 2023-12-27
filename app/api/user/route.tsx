@@ -49,13 +49,14 @@ export async function POST(req: Request ) {
         }
 
 
-        const hashedPassword = await hash(password, 10)
+       // const hashedPassword = await hash(password, 10)
         const newUser = await db.user.create({
             data: {
                 email,
-                password: hashedPassword,
+                password,  // password: hashedPassword,
                 username,
                 employeeId
+
 
             }
         });

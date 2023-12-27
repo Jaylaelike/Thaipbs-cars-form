@@ -234,27 +234,29 @@ function page({ params }: { params: { id: number } }) {
   };
 
   return (
-    <div className="bg-slate-200 p-10 rounded-md pt-10">
-      <div className="p-8 grid grid-cols-1 pb-8 z-20">
+    <div className="bg-slate-200 p-10 rounded-md pt-10 z-30">
+   
+      <div className="grid grid-cols-1 p-10 z-20">
         <BackButton />
       </div>
-      <div className="p-8 grid grid-cols-1 pb-8 z-20">
+
+      <div className="grid grid-cols-1 p-10 z-20">
         <BackButton />
       </div>
-      <div className="p-8 grid grid-cols-1 pb-8 z-20">
+
+      <div className="grid grid-cols-1 p-10 z-20">
         <BackButton />
       </div>
-      <div className="p-8 grid grid-cols-1 pb-8 z-20">
-        <BackButton />
-      </div>
+      
+    
 
       {getStatus === "Stand By" ? (
         <div className="w-full">
           <h1 className="text-center">เพิ่มข้อมูลต้นทาง</h1>
           <h1>{`Status is : ${getStatus} `}</h1>
 
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+          <Form {...form} >
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full p-4">
               <div className="space-y-2">
                 <FormField
                   control={form.control}

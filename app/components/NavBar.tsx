@@ -38,7 +38,7 @@ const Navbar = async () => {
                 <div className="w-10 rounded-full">
                   <img
                     alt="userAvatar"
-                    src={`https://pms-api.thaipbs.or.th/EmployeeData/Pictures/${session?.user?.employeeId}.jpg`}
+                    src={session?.user?.image_url}
                   />
                 </div>
               </div>

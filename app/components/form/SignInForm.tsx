@@ -25,8 +25,9 @@ const FormSchema = z.object({
   //   .string()
   //   .min(1, 'Password is required')
   //   .min(8, 'Password must have than 8 characters'),
-  email: z.string().email('Invalid Email').min(1, 'Email is requiered').max(100),
-  password: z.string().min(1, 'Password is requiered').min(8, 'Password must be at least 8 characters'),
+  // email: z.string().email('Invalid Email').min(1, 'Email is requiered').max(100),
+  username: z.string().min(1, 'Username is requiered').max(10),
+  password: z.string().min(1, 'Password is requiered').min(3, 'Password must be at least 8 characters'),
 
 });
 
@@ -36,7 +37,7 @@ const SignInForm = () => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      email: '',
+      username: '',
       password: '',
     },
   });
@@ -44,7 +45,7 @@ const SignInForm = () => {
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
    
     const signInData = await signIn('credentials', {
-      email: values.email,
+      username: values.username,
       password: values.password,
       redirect: false,
     });
@@ -71,12 +72,12 @@ const SignInForm = () => {
         <div className='space-y-2'>
           <FormField
             control={form.control}
-            name='email'
+            name='username'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input placeholder='mail@example.com' {...field} />
+                  <Input placeholder='รหัสพนักงาน(01XXX)' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

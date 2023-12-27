@@ -1,9 +1,9 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
+
 import { db } from "./db";
-import { compare } from "bcrypt";
+// import { compare } from "bcrypt";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),
@@ -18,30 +18,34 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: {
-          label: "Email",
-          type: "email",
-          placeholder: "Enter your email",
-        },
+        // email: {
+        //   label: "Email",
+        //   type: "email",
+        //   placeholder: "Enter your email",
+        // },
+        username: { label: "Username", type: "text"},
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
         // const user = { id: "1", name: "J Smith", email: "jsmith@example.com" };
-        if (!credentials?.email || !credentials?.password) {
+        if (!credentials?.username || !credentials?.password) {
           return null;
         }
 
         const existingUser = await db.user.findUnique({
-          where: { email: credentials?.email },
+          where: { username: credentials?.username },
         });
         if (!existingUser) {
           return null;
         }
 
-        const passwordMatch = await compare(
-          credentials.password,
-          existingUser.password
-        );
+        // const passwordMatch = await compare(
+        //   credentials.password,
+        //   existingUser.password
+        // );
+
+        //dont use bcrypt compare
+        const passwordMatch = credentials.password === existingUser.password;
 
         if (!passwordMatch) {
           return null;
@@ -49,9 +53,11 @@ export const authOptions: NextAuthOptions = {
 
         return {
           id: `${existingUser.id}`,
-          name: existingUser.username,
+          // name: existingUser.username,
+          name: existingUser.ThaiName,
           email: existingUser.email,
           employeeId: existingUser.employeeId,
+          image_url: existingUser.image_url,
         };
       },
     }),
@@ -63,6 +69,7 @@ export const authOptions: NextAuthOptions = {
           ...token,
           username: user.username,
           employeeId: user.employeeId,
+          image_url: user.image_url,
         };
       }
       return token;
@@ -74,6 +81,7 @@ export const authOptions: NextAuthOptions = {
           ...session.user,
           username: token.username,
           employeeId: token.employeeId,
+          image_url: token.image_url,
         },
       };
     },
