@@ -15,9 +15,11 @@ RUN npm install
 # Copy all files
 COPY . .
 
+
+
 RUN npm run build
 
-COPY .next ./.next
+
 
 # Expose the listening port
 EXPOSE 3000

@@ -31,7 +31,7 @@ export default function page({ params }: { params: { id: number } }) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     try {
-      fetch(`http://localhost:4000/carsform/${params.id}`)
+      fetch(process.env.CARSFORM_URL +`${params.id}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.message === "Not found id") {
@@ -98,7 +98,7 @@ export default function page({ params }: { params: { id: number } }) {
     };
     console.log(data);
 
-    fetch(`http://localhost:4000/carsform/${params.id}`, {
+    fetch(process.env.CARSFORM_URL + `${params.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

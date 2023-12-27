@@ -54,7 +54,7 @@ function UpdateOil({
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:5500/api/miles/check/update/${licensPropsProductions}`
+        process.env.MILES_CHECK_URL +`${licensPropsProductions}`
       );
       const data = await response.json();
       setData(data);
@@ -100,7 +100,7 @@ function UpdateOil({
 
     try {
       const respone = await axios.patch(
-        `http://localhost:4000/carsform/${idLicense}`,
+        process.env.CARSFORM_URL +`${idLicense}`,
         values,
         {
           headers: {
@@ -119,7 +119,7 @@ function UpdateOil({
           การเติมน้ำมันจำนวน: calculatLitersOils,
         };
         const pathRespone = await axios.patch(
-          `http://localhost:4000/carsform/${idLicense}`,
+          process.env.CARSFORM_URL + `${idLicense}`,
           patchData
         );
         console.log(pathRespone.data);

@@ -53,7 +53,7 @@ function page() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:5500/api/license/check/insert/${selcectedStatus}`
+        process.env.LICENSE_CHECK_URL + `${selcectedStatus}`
       );
       const data = await response.json();
       setStatus(data.map((item: { Status: string }) => item.Status));
@@ -71,7 +71,7 @@ function page() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:5500/api/miles/check/update/${selcectedStatus}`
+        process.env.MILES_CHECK_URL +`${selcectedStatus}`
       );
       const data = await response.json();
       setMilesStarts(
@@ -105,7 +105,7 @@ function page() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:5500/api/license/check/insert/${selcectedStatus}`
+        process.env.LICENSE_CHECK_URL + `${selcectedStatus}`
       );
       const data = await response.json();
       setStatus(data.map((item: { Status: string }) => item.Status));
@@ -129,7 +129,7 @@ function page() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:5500/api/departments/${superSections}`
+      process.env.CARS_DEPARTMENT_URL + `${superSections}`
       );
       const data = await response.json();
       setOptions(data.map((item: { Divition: string }) => item.Divition));
@@ -141,7 +141,7 @@ function page() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:5500/api/departments/${selectedDivitions}/${selectedsections}`
+        process.env.CARS_DEPARTMENT_URL + `${selectedDivitions}/${selectedsections}`
       );
       const data = await response.json();
       setSections(data.map((item: { Section: string }) => item.Section));
@@ -153,7 +153,7 @@ function page() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:5500/api/license/${selectedlicense}`
+       process.env.LICENSE_URL + `${selectedlicense}`
       );
       const data = await response.json();
       setLicense(data.map((item: { Car: string }) => item.Car));
@@ -208,14 +208,14 @@ function page() {
     console.log(dataUpdate);
 
     Promise.all([
-      fetch("http://localhost:4000/carsform", {
+      fetch(process.env.CARSFORM_URL as string, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(dataInsert),
       }),
-      fetch(`http://localhost:4000/license/${selcectedStatus}`, {
+      fetch(process.env.CARSFORM_LICENSE_URL +`${selcectedStatus}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

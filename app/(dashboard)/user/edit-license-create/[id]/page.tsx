@@ -127,7 +127,7 @@ function page({ params }: { params: { id: number } }) {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:4000/carsform/${params.id}`
+        process.env.CARSFORM_URL + `${params.id}`
       );
       const data = await response.json();
       setdataStatus(data);
@@ -186,7 +186,7 @@ function page({ params }: { params: { id: number } }) {
 
     try {
       const respone = await axios.post(
-        "http://localhost:4000/carsform",
+        process.env.CARSFORM_URL as string,
         values,
         {
           headers: {
@@ -208,7 +208,7 @@ function page({ params }: { params: { id: number } }) {
           Status: values.Status,
         };
         const pathRespone = await axios.patch(
-          `http://localhost:4000/license/${selectedlicense}`,
+          process.env.CARSFORM_LICENSE_URL + `${selectedlicense}`,
           patchData
         );
         console.log(pathRespone.data);

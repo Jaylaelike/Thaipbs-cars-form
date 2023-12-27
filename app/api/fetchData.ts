@@ -5,7 +5,7 @@
 import axios from "axios";
 
 async function fetchDataTable() {
-  const res = await axios.get("http://localhost:4000/carsform");
+  const res = await axios.get(process.env.CARSFORM_URL as string);
   console.log(res.data);
   return {
     props: {

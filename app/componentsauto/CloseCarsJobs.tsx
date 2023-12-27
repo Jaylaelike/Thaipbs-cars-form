@@ -61,7 +61,7 @@ function CloseCarsJobs({ licensPropsProductions }: Props) {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:5500/api/miles/check/update/${licensPropsProductions}`
+        process.env.MILES_CHECK_URL + `${licensPropsProductions}`
       );
       const data = await response.json();
       setData(data);
@@ -107,7 +107,7 @@ function CloseCarsJobs({ licensPropsProductions }: Props) {
 
     try {
       const respone = await axios.patch(
-        `http://localhost:4000/carsform/${idLicense}`,
+        process.env.CARSFORM_URL + `${idLicense}`,
         values,
         {
           headers: {
@@ -127,7 +127,7 @@ function CloseCarsJobs({ licensPropsProductions }: Props) {
           รายละเอียดการใช้งาน: `จอดอยู่ที่ ${selcectedDesinations}`,
         };
         const pathRespone = await axios.patch(
-          `http://localhost:4000/license/${licensPropsProductions}`,
+         process.env.CARSFORM_LICENSE_URL + `${licensPropsProductions}`,
           patchData
         );
         console.log(pathRespone.data);
@@ -137,7 +137,7 @@ function CloseCarsJobs({ licensPropsProductions }: Props) {
           เลขไมค์ระยะรวม: calculateDistanceMiles,
         };
         const updateDistanceMilesRespone = await axios.patch(
-          `http://localhost:4000/carsform/${idLicense}`,
+         process.env.CARSFORM_URL + `${idLicense}`,
           updateDistanceMiles
         );
 
