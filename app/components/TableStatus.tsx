@@ -39,7 +39,7 @@ function TableStatus() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://172.16.202.63/:5500/api/miles/check/update/${selectLicense}`
+        `http://172.16.202.63:5500/api/miles/check/update/${selectLicense}`
       );
       const data = await response.json();
 
