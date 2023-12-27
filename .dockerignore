@@ -1,3 +1,4 @@
-node_modules
+node_modules/
+!nodes_modules/.prisma
 .git
 .gitignore

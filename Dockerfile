@@ -9,6 +9,8 @@ WORKDIR /app
 # Utilise Docker cache to save re-installing dependencies if unchanged
 COPY package*.json ./
 
+COPY prisma ./prisma/
+
 # Install dependencies
 RUN npm install
 
