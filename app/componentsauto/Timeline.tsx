@@ -31,7 +31,7 @@ function Timeline( {license, getStateolis} : TimelineProps) {
     useEffect(() => {
         const fetchData = async () => {
           const response = await fetch(
-            process.env.MILES_CHECK_URL + `${license}`
+            process.env.NEXT_PUBLIC_MILES_CHECK_URL + `${license}`
           );
           const data = await response.json();
     

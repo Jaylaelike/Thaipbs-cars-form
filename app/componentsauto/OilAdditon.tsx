@@ -38,7 +38,7 @@ function OilAdditon({ licensPropsProductions }: Props) {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        process.env.MILES_CHECK_URL + `${licensPropsProductions}`
+        process.env.NEXT_PUBLIC_MILES_CHECK_URL + `${licensPropsProductions}`
       );
       const data = await response.json();
       setData(data);
@@ -79,7 +79,7 @@ function OilAdditon({ licensPropsProductions }: Props) {
 
     try {
       const respone = await axios.patch(
-        process.env.CARSFORM_URL + `${idLicense}`,
+        process.env.NEXT_PUBLIC_CARSFORM_URL + `${idLicense}`,
         values,
         {
           headers: {
