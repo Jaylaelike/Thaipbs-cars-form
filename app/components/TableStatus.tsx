@@ -23,7 +23,7 @@ function TableStatus() {
   const [checkStatus, setCheckStatus] = React.useState<string[]>([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://172.16.202.63/:5400/license");
+      const response = await fetch("http://172.16.202.63:5400/license");
       const data = await response.json();
 
       setCheckStatus(data && data.map((data: any) => data.Status));
