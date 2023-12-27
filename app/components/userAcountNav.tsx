@@ -9,7 +9,7 @@ function UserAcountNav() {
   return (
     <>
      <Button onClick={()=> signOut({
-        callbackUrl:  process.env.NEXT_PUBLIC_URL + '/sign-in',
+        callbackUrl:  process.env.NEXT_PUBLIC_BASE_URL + '/sign-in',
         redirect: true,
      })} variant='destructive'>Sign Out</Button>
     </>
