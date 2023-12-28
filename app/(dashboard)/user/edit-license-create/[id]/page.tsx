@@ -429,7 +429,7 @@ function page({ params }: { params: { id: number } }) {
                     </FormItem>
                   )}
                 />
-                <FormField
+                {/* <FormField
                   control={form.control}
                   name="Status"
                   render={({ field }) => (
@@ -445,7 +445,7 @@ function page({ params }: { params: { id: number } }) {
                       <FormMessage />
                     </FormItem>
                   )}
-                />
+                /> */}
               </div>
               <Button className="w-full mt-6" type="submit">
                 บันทึกข้อมูล
