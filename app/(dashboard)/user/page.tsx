@@ -179,7 +179,7 @@ const page = async () => {
 
   return (
     <div>
-      <h2 className="text-2xl">Please Login to see this admin page</h2>
+      <h2 className="text-2xl">กรุณา Login เพื่อเข้าใช้งานระบบ</h2>
     </div>
   );
 };

@@ -25,10 +25,15 @@ const Navbar = async () => {
 
         {session?.user ? (
           <div className="flex flex-nowrap">
-            <h4 className="text-base  pt-5">
+
+            <div className="grid grid-row justify-between">
+            <h4 className="text-base ">
               ยินดีต้อนรับ : {session?.user?.name}
-              รหัสพนักงาน : {session?.user?.employeeId}
             </h4>
+            <h4 className="text-base">
+            รหัสพนักงาน : {session?.user?.employeeId}
+            </h4>
+            </div>
             <div
               tabIndex={0}
               role="button"

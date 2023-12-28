@@ -23,7 +23,7 @@ function TableStatus() {
   const [checkStatus, setCheckStatus] = React.useState<string[]>([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://172.16.202.63:5400/license");
+      const response = await fetch(process.env.NEXT_PUBLIC_CARSFORM_LICENSE_URL as string);
       const data = await response.json();
 
       setCheckStatus(data && data.map((data: any) => data.Status));
@@ -39,7 +39,7 @@ function TableStatus() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://172.16.202.63:5500/api/miles/check/update/${selectLicense}`
+        process.env.NEXT_PUBLIC_MILES_CHECK_URL + `${selectLicense}`
       );
       const data = await response.json();
 

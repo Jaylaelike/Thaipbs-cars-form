@@ -134,6 +134,7 @@ function OilAdditon({ licensPropsProductions }: Props) {
                   <FormLabel>เลขไมล์เติมน้ำมัน</FormLabel>
                   <FormControl>
                     <Input
+                     type="number"
                       placeholder="เลขไมล์เติมน้ำมัน"
                       {...field}
                       value={field.value || ""}
@@ -185,6 +186,7 @@ function OilAdditon({ licensPropsProductions }: Props) {
                   <FormLabel>การเติมน้ำมันราคา</FormLabel>
                   <FormControl>
                     <Input
+                    type="number"
                       placeholder="การเติมน้ำมันราคา"
                       {...field}
                       value={field.value || ""}
@@ -202,6 +204,7 @@ function OilAdditon({ licensPropsProductions }: Props) {
                   <FormLabel>การเติมน้ำมันจำนวน</FormLabel>
                   <FormControl>
                     <Input
+                    type="number"
                       placeholder="การเติมน้ำมันจำนวน"
                       {...field}
                       value={field.value || ""}

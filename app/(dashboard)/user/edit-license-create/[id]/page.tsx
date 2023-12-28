@@ -234,20 +234,17 @@ function page({ params }: { params: { id: number } }) {
   };
 
   return (
-    <div className="bg-slate-200 p-10 rounded-md pt-10 z-30">
+    <div className="container bg-slate-200 p-10 rounded-md pt-10 z-30">
    
-      <div className="grid grid-cols-1 p-10 z-20">
+      <div className="grid grid-cols-1 p-20 z-20">
         <BackButton />
       </div>
 
-      <div className="grid grid-cols-1 p-10 z-20">
+      <div className="grid grid-cols-1 p-20 z-20">
         <BackButton />
       </div>
 
-      <div className="grid grid-cols-1 p-10 z-20">
-        <BackButton />
-      </div>
-      
+  
     
 
       {getStatus === "Stand By" ? (
