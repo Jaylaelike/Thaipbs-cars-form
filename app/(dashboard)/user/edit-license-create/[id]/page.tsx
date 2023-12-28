@@ -247,7 +247,7 @@ function page({ params }: { params: { id: number } }) {
   
     
 
-      {getStatus === "Stand By" ? (
+      {getStatus === "จอด" ? (
         <div className="w-full">
           <h1 className="text-center">เพิ่มข้อมูลต้นทาง</h1>
           <h1>{`Status is : ${getStatus} `}</h1>
