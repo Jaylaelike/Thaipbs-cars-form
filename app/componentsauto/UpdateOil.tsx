@@ -221,7 +221,7 @@ function UpdateOil({
                   <FormLabel>การเติมน้ำมันราคา</FormLabel>
                   <FormControl>
                     <Input
-                    type="number"
+                    type="text"
                       placeholder="การเติมน้ำมันราคา"
                       {...form.register("การเติมน้ำมันราคา")}
                       //onchange คำนวน ผลรวมราคา
@@ -244,7 +244,7 @@ function UpdateOil({
                   <FormLabel>การเติมน้ำมันจำนวน</FormLabel>
                   <FormControl>
                     <Input
-                    type="number"
+                     type="text"
                       placeholder="การเติมน้ำมันจำนวน"
                       {...form.register("การเติมน้ำมันจำนวน")}
                       //onchange คำนวน ผลรวมจำนวน
