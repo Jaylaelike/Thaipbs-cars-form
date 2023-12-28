@@ -89,7 +89,7 @@ function CloseCarsJobs({ licensPropsProductions }: Props) {
     defaultValues: {
       เลขไมค์กลับ: "",
       วันที่เดินทางกลับ: stringDate || null,
-      Status: "Stand By",
+      Status: "จอด",
     },
   });
 
